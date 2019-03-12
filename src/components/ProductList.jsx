@@ -14,6 +14,7 @@ class ProductList extends Component {
         removeProductFromProductList={this.props.removeProductFromProductList}
         addItemToCart={this.props.addItemToCart}
         removeItemFromCart={this.props.removeItemFromCart}
+        adminView={this.props.adminView}
       />
     })
     return (

@@ -31,7 +31,12 @@ class Product extends Component {
         <button onClick={this.removeItemFromCart}>Remove From Cart</button>
       </div>
     )
-    
+
+    if (this.props.adminView === true) {
+      return adminButton
+    } else {
+      return shopButton
+    }
   }
   render() {
 

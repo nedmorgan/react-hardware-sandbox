@@ -12,6 +12,7 @@ class AdminView extends Component {
         <ProductList
           productList={this.props.productList}
           removeProductFromProductList={this.props.removeProductFromProductList}
+          adminView={this.props.adminView}
         />
         <h2>Create a New Product</h2>
         <ProductForm

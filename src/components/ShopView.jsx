@@ -10,6 +10,7 @@ class ShopView extends Component {
         <ProductList
           productList={this.props.productList}
           addItemToCart={this.props.addItemToCart}
+          adminView={this.props.adminView}
         />
       </div>
     )

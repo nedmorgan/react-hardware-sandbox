@@ -80,11 +80,13 @@ class HomePage extends Component {
 
     const adminView = <AdminView
       productList={this.state.productList}
+      adminView={this.state.adminView}
       addNewProductToProductList={this.addNewProductToProductList}
       removeProductFromProductList={this.removeProductFromProductList} />
 
     const shopView = <ShopView
       productList={this.state.productList}
+      adminView={this.state.adminView}
       addItemToCart={this.addItemToCart}
     />
     return (
