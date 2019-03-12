@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import AdminView from "./AdminView"
-import ProductList from './ProductList'
-import Product from './Product'
+import ShopView from './ShopView'
+import CartView from './CartView'
 
 class HomePage extends Component {
   state = {
     itemCurrentlyOnSale: 'A Hammer',
     editSaleItem: true,
+    adminView: false,
     productList: [
       {
         productName: 'Hammer',
-        description: 'Itsa hammer',
+        description: 'Its a hammer',
         price: 12.3,
       },
       {
         productName: 'Nail',
-        description: 'Itsa nail',
+        description: 'Its a nail',
         price: 0.12,
       }
     ]
@@ -43,10 +44,31 @@ class HomePage extends Component {
     document.title = this.state.itemCurrentlyOnSale
   }
 
+  addNewProductToProductList = (newProduct) => {
+    const productList = [...this.state.productList]
+    productList.push(newProduct)
+    this.setState({ productList })
+  }
+
+  removeProductFromProductList = (productIndex) => {
+    const productList = [...this.state.productList]
+    productList.splice(productIndex, 1)
+    this.setState({ productList })
+  }
+
+  changeToAdminView = () => {
+
+  }
+
   render() {
     return (
       <div>
         <h1>My Hardware Store</h1>
+        <span>
+          <button onClick={this.changeToAdminView}>
+            {this.state.adminView ? 'Show Shop View' : 'Show Admin View'}
+          </button>
+        </span>
         <div><span>Currently on Sale: {this.state.itemCurrentlyOnSale}!</span>
           <span>
             <button onClick={this.toggleEditSaleItem}>
@@ -55,7 +77,10 @@ class HomePage extends Component {
           </span>
           {this.state.editSaleItem ? <div><input onChange={this.handleItemCurrentlyOnSaleChange} type="text" value={this.state.itemCurrentlyOnSale} /></div> : null}
         </div>
-        <AdminView productList={this.state.productList} />
+        <AdminView
+          productList={this.state.productList}
+          addNewProductToProductList={this.addNewProductToProductList}
+          removeProductFromProductList={this.removeProductFromProductList} />
       </div>
     )
   }

@@ -9,6 +9,7 @@ class Product extends Component {
         <h3>{productName}</h3>
         <div>{description}</div>
         <div>{price}</div>
+        <button type="delete" onClick={() => this.props.removeProductFromProductList(this.props.index)}>Delete</button>
       </div>
     )
   }

@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Product from './Product'
 
-class ProductList extends Component {
+class ShopView extends Component {
+  state = {}
   render() {
     const { productList } = this.props
     const productComponents = productList.map((product, index) => {
@@ -16,10 +17,11 @@ class ProductList extends Component {
     })
     return (
       <div>
+        <h1>Shop</h1>
         {productComponents}
       </div>
     )
   }
 }
 
-export default ProductList
+export default ShopView
