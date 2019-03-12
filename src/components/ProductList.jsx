@@ -12,6 +12,8 @@ class ProductList extends Component {
         key={index}
         index={index}
         removeProductFromProductList={this.props.removeProductFromProductList}
+        addItemToCart={this.props.addItemToCart}
+        removeItemFromCart={this.props.removeItemFromCart}
       />
     })
     return (

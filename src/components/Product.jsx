@@ -4,7 +4,35 @@ class Product extends Component {
   deleteItem = () => {
     this.props.removeProductFromProductList(this.props.index)
   }
-  
+
+  addItemToCart = () => {
+    this.props.addItemToCart(this.props.index)
+  }
+
+  removeItemFromCart = () => {
+    this.props.removeItemFromCart(this.props.index)
+  }
+
+  showButtons = () => {
+    const adminButton = (
+      <div>
+        <button onClick={this.deleteItem}>Delete</button>
+      </div>
+    )
+
+    const shopButton = (
+      <div>
+        <button onClick={this.addItemToCart}>Add to Cart</button>
+      </div>
+    )
+
+    const removeCartButton = (
+      <div>
+        <button onClick={this.removeItemFromCart}>Remove From Cart</button>
+      </div>
+    )
+    
+  }
   render() {
 
     const { productName, description, price } = this.props
@@ -13,7 +41,7 @@ class Product extends Component {
         <h3>{productName}</h3>
         <div>{description}</div>
         <div>{price}</div>
-        <button type="delete" onClick={() => this.props.removeProductFromProductList(this.props.index)}>{this.props.adminView ? "Delete" : "Add to Cart"}</button>
+        {this.showButtons()}
       </div>
     )
   }

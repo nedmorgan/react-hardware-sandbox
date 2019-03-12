@@ -69,7 +69,12 @@ class HomePage extends Component {
     this.setState({ cartList })
   }
 
-  
+  removeItemFromCart = (index) => {
+    const cartList = [...this.state.cartList]
+    const product = [...this.state.cartList[index]]
+    cartList.splice(product, 1)
+    this.setState({ cartList })
+  }
 
   render() {
 
@@ -80,6 +85,7 @@ class HomePage extends Component {
 
     const shopView = <ShopView
       productList={this.state.productList}
+      addItemToCart={this.addItemToCart}
     />
     return (
       <div>
@@ -101,6 +107,7 @@ class HomePage extends Component {
           {this.state.adminView ? adminView : shopView}
           <CartView
             productList={this.state.cartList}
+            removeItemFromCart={this.removeItemFromCart}
           />
         </div>
       </div>
