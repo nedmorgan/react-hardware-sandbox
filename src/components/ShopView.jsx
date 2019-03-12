@@ -11,6 +11,7 @@ class ShopView extends Component {
           productList={this.props.productList}
           addItemToCart={this.props.addItemToCart}
           adminView={this.props.adminView}
+          viewMode={'Shop'}
         />
       </div>
     )

@@ -9,6 +9,7 @@ class CartView extends Component {
         <h1>Cart</h1>
         <ProductList
           productList={this.props.productList}
+          viewMode={'Cart'}
         />
       </div>
     );

@@ -14,6 +14,8 @@ class Product extends Component {
   }
 
   showButtons = () => {
+    const viewMode = this.props.viewMode
+    
     const adminButton = (
       <div>
         <button onClick={this.deleteItem}>Delete</button>
@@ -32,10 +34,15 @@ class Product extends Component {
       </div>
     )
 
-    if (this.props.adminView === true) {
-      return adminButton
-    } else {
-      return shopButton
+    switch (viewMode) {
+      case 'Admin':
+        return adminButton
+      case 'Shop':
+        return shopButton
+      case 'Cart':
+        return removeCartButton
+      default:
+        return null
     }
   }
   render() {
