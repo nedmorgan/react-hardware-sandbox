@@ -19,7 +19,8 @@ class HomePage extends Component {
         description: 'Its a nail',
         price: 0.12,
       }
-    ]
+    ],
+    cartList: []
   }
 
   toggleEditSaleItem = () => {
@@ -90,7 +91,7 @@ class HomePage extends Component {
         <div>
           {this.state.adminView ? adminView : shopView}
           <CartView
-            productList={this.state.productList}
+            productList={this.state.cartList}
           />
         </div>
       </div>
