@@ -57,10 +57,20 @@ class HomePage extends Component {
   }
 
   changeToAdminView = () => {
-
+    const adminView = !this.state.adminView
+    this.setState({ adminView })
   }
 
   render() {
+
+    const adminView = <AdminView
+      productList={this.state.productList}
+      addNewProductToProductList={this.addNewProductToProductList}
+      removeProductFromProductList={this.removeProductFromProductList} />
+
+    const shopView = <ShopView
+      productList={this.state.productList}
+    />
     return (
       <div>
         <h1>My Hardware Store</h1>
@@ -77,10 +87,9 @@ class HomePage extends Component {
           </span>
           {this.state.editSaleItem ? <div><input onChange={this.handleItemCurrentlyOnSaleChange} type="text" value={this.state.itemCurrentlyOnSale} /></div> : null}
         </div>
-        <AdminView
-          productList={this.state.productList}
-          addNewProductToProductList={this.addNewProductToProductList}
-          removeProductFromProductList={this.removeProductFromProductList} />
+        <div>
+          {this.state.adminView ? adminView : shopView}
+        </div>
       </div>
     )
   }
