@@ -12,13 +12,23 @@ class HomePage extends Component {
     // this.setState({editSaleItem: editSaleItem})
     this.setState({ editSaleItem })
   }
+
+  handleItemCurrentlyOnSaleChange = (event) => {
+    const itemCurrentlyOnSale = event.target.value
+    this.setState({ itemCurrentlyOnSale })
+  }
+
   render() {
     return (
       <div>
         <h1>My Hardware Store</h1>
         <div><span>Currently on Sale: {this.state.itemCurrentlyOnSale}!</span>
-          <span><button onClick={this.toggleEditSaleItem}>{this.state.editSaleItem ? 'Hide' : 'Edit Sale Item'}</button></span>
-          {this.state.editSaleItem ? <div><input type="text" value={this.state.itemCurrentlyOnSale} /></div> : null}
+          <span>
+            <button onClick={this.toggleEditSaleItem}>
+              {this.state.editSaleItem ? 'Hide' : 'Edit Sale Item'}
+            </button>
+          </span>
+          {this.state.editSaleItem ? <div><input onChange={this.handleItemCurrentlyOnSaleChange} type="text" value={this.state.itemCurrentlyOnSale} /></div> : null}
         </div>
       </div>
     )
