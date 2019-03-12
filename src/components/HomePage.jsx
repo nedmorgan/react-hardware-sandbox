@@ -62,6 +62,15 @@ class HomePage extends Component {
     this.setState({ adminView })
   }
 
+  addItemToCart = (index) => {
+    const cartList = [...this.state.cartList]
+    const product = { ...this.state.productList[index] }
+    cartList.push(product)
+    this.setState({ cartList })
+  }
+
+  
+
   render() {
 
     const adminView = <AdminView
