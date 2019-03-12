@@ -71,8 +71,7 @@ class HomePage extends Component {
 
   removeItemFromCart = (index) => {
     const cartList = [...this.state.cartList]
-    const product = [...this.state.cartList[index]]
-    cartList.splice(product, 1)
+    cartList.splice(index, 1)
     this.setState({ cartList })
   }
 

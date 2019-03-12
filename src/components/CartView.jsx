@@ -10,6 +10,7 @@ class CartView extends Component {
         <ProductList
           productList={this.props.productList}
           viewMode={'Cart'}
+          removeItemFromCart={this.props.removeItemFromCart}
         />
       </div>
     );

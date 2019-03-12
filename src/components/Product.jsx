@@ -15,7 +15,7 @@ class Product extends Component {
 
   showButtons = () => {
     const viewMode = this.props.viewMode
-    
+
     const adminButton = (
       <div>
         <button onClick={this.deleteItem}>Delete</button>
