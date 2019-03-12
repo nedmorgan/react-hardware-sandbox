@@ -89,6 +89,9 @@ class HomePage extends Component {
         </div>
         <div>
           {this.state.adminView ? adminView : shopView}
+          <CartView
+            productList={this.state.productList}
+          />
         </div>
       </div>
     )
