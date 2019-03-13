@@ -66,15 +66,21 @@ class HomePage extends Component {
   addItemToCart = (index) => {
     const cartList = [...this.state.cartList]
     const product = { ...this.state.productList[index] }
-    this.state.total += product.price
+    let total = this.state.total
+    total += product.price
+    this.setState({ total })
     cartList.push(product)
     this.setState({ cartList })
   }
 
   removeItemFromCart = (index) => {
     const cartList = [...this.state.cartList]
+    let total = this.state.total
+    const reducer = (acc, cur) => acc.price + cur
     cartList.splice(index, 1)
     this.setState({ cartList })
+    total = cartList.reduce(reducer)
+    this.setState({ total })
   }
 
   render() {
