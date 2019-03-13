@@ -12,7 +12,7 @@ class HomePage extends Component {
       {
         productName: 'Hammer',
         description: 'Its a hammer',
-        price: 12.3,
+        price: 12.35,
       },
       {
         productName: 'Nail',
@@ -20,7 +20,8 @@ class HomePage extends Component {
         price: 0.12,
       }
     ],
-    cartList: []
+    cartList: [],
+    total: 0
   }
 
   toggleEditSaleItem = () => {
@@ -65,6 +66,7 @@ class HomePage extends Component {
   addItemToCart = (index) => {
     const cartList = [...this.state.cartList]
     const product = { ...this.state.productList[index] }
+    this.state.total += product.price
     cartList.push(product)
     this.setState({ cartList })
   }
@@ -109,6 +111,7 @@ class HomePage extends Component {
           <CartView
             productList={this.state.cartList}
             removeItemFromCart={this.removeItemFromCart}
+            total={this.state.total}
           />
         </div>
       </div>
