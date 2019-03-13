@@ -68,6 +68,7 @@ class HomePage extends Component {
     const product = { ...this.state.productList[index] }
     let total = this.state.total
     total += product.price
+    // total = total.toFixed(2)
     this.setState({ total })
     cartList.push(product)
     this.setState({ cartList })
@@ -76,10 +77,10 @@ class HomePage extends Component {
   removeItemFromCart = (index) => {
     const cartList = [...this.state.cartList]
     let total = this.state.total
-    const reducer = (acc, cur) => acc.price + cur
     cartList.splice(index, 1)
     this.setState({ cartList })
-    total = cartList.reduce(reducer)
+    total = cartList.map(i => { return i.price }).reduce((a, b) => { return a + b }, 0)
+    // total = total.toFixed(2)
     this.setState({ total })
   }
 
